@@ -1,0 +1,17 @@
+linters:
+  disable-all: true
+  enable:
+    - govet
+    - staticcheck
+    - errcheck
+    - gosimple
+    - ineffassign
+    - unused
+
+    - bodyclose
+    - canonicalheader
+    - sqlclosecheck
+
+    - tparallel
+    - thelper
+    - testpackage
