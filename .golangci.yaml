@@ -7,6 +7,7 @@ linters:
     - gosimple
     - ineffassign
     - unused
+    - goimports
 
     - bodyclose
     - canonicalheader
