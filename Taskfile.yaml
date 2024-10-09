@@ -8,3 +8,7 @@ tasks:
   format:
     cmds:
       - goimports -w -l .
+
+  test:
+    cmds:
+      - go test -race ./...
