@@ -8,5 +8,6 @@
 #   - all
 registries:
 - type: standard
-  ref: v4.231.0  # renovate: depName=aquaproj/aqua-registry
+  ref: v4.231.0 # renovate: depName=aquaproj/aqua-registry
 packages:
+- name: go-task/task@v3.39.2
