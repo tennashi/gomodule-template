@@ -9,10 +9,19 @@ tasks:
     cmds:
       - goimports -w -l .
 
+  test-cmd:
+    internal: true
+    cmds:
+      - go test {{ .flags }} ./...
+
   test:
     cmds:
-      - go test -race ./...
+      - task: test-cmd
+        vars:
+          flags: -race
 
   test:coverage:
     cmds:
-      - go test -coverprofile=coverage.out ./...
+      - task: test-cmd
+        vars:
+          flags: -coverprofile=coverage.out
