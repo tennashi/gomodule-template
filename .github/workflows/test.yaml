@@ -1,0 +1,34 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  CGO_ENABLED: 0
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        go: [stable, oldstable]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+  
+      - name: Install go-task
+        uses: arduino/setup-task@v2
+
+      - name: Run test
+        run: task test
