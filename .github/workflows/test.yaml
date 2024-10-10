@@ -29,3 +29,30 @@ jobs:
 
       - name: Run test
         run: task test
+
+  coverage:
+    strategy:
+      matrix:
+        go: [stable]
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+  
+      - name: Install go-task
+        uses: arduino/setup-task@v2
+
+      - name: Run test:coverage
+        run: task test:coverage
+
+
+      - name: Create coverage report
+        uses: k1LoW/octocov-action@v1
