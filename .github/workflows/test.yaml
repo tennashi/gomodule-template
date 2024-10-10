@@ -1,4 +1,4 @@
-name: Lint
+name: Test
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  lint:
+  test:
     strategy:
       matrix:
         go: [stable, oldstable]
@@ -24,5 +24,8 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
   
-      - name: Run linters
-        uses: golangci/golangci-lint-action@v6
+      - name: Install go-task
+        uses: arduino/setup-task@v2
+
+      - name: Run test
+        run: task test
