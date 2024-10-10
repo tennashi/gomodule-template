@@ -12,3 +12,7 @@ tasks:
   test:
     cmds:
       - go test -race ./...
+
+  test:coverage:
+    cmds:
+      - go test -coverprofile=coverage.out ./...
