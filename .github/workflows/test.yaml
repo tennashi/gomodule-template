@@ -6,9 +6,6 @@ on:
       - main
   pull_request:
 
-env:
-  CGO_ENABLED: 0
-
 jobs:
   test:
     strategy:
