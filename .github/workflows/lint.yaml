@@ -25,4 +25,4 @@ jobs:
           go-version: ${{ matrix.go }}
   
       - name: Run linters
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v8
