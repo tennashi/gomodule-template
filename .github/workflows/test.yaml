@@ -25,7 +25,7 @@ jobs:
           go-version: ${{ matrix.go }}
   
       - name: Install go-task
-        uses: arduino/setup-task@v2
+        uses: arduino/setup-task@v3.0.0
 
       - name: Run test
         run: task test
@@ -48,7 +48,7 @@ jobs:
           go-version: ${{ matrix.go }}
   
       - name: Install go-task
-        uses: arduino/setup-task@v2
+        uses: arduino/setup-task@v3.0.0
 
       - name: Run test:coverage
         run: task test:coverage
